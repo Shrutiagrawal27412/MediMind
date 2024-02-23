@@ -1,0 +1,14 @@
+from flask import Flask, request, jsonify
+import joblib
+app = Flask(_name_)
+
+model = joblib.load('model_jlib')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.json
+    predictions = model.predict(data)
+    return jsonify({'predictions': predictions.tolist()}), 200
+
+if _name_ == 'main':
+    app.run(debug=True)
