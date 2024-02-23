@@ -1,0 +1,63 @@
+To SETUP Mosquitto and NGROK scroll down
+_________________________________________________________________________________________________ 
+
+--->Steps for Running code on MQTT
+
+1.) Starting Mosquitto Broker.
+	run powershell as admin
+	>> net start mosquitto
+	
+	1883
+
+2.) Turning on Server
+	open ngrok.exe
+	>> ngrok tcp 1883
+	server should turn on and you should be able to see this line .
+		Forwarding                    tcp://0.tcp.in.ngrok.io:12321 -> localhost:1883
+	 	in this line the port no is  12321
+
+3.)Opening Mqtt Explorer
+	Host : 0.tcp.in.ngrok.io
+	input same port as above 
+	connect
+
+4.) Run the code 
+	Put the port number into the code
+	run 
+____________________________________________________________________________________________________	
+
+--->To setup mosquitto
+ 	install mosquitto 
+	go to window firewall/advanced settings
+	in outbund rules create new rule and allow access to connect on port 1883 for all domains
+	in program files/mosquitto/mosquitto.conf
+	you will find a line: anonymous false
+	change it to anonymous true  
+	similarly change listener to listener 1883
+	and save the file 
+	now you can start the mosquitto broker 
+
+
+
+____________________________________________________________________________________________________
+
+---> To setup NGROK
+	sign in to ngrok. They will provide you with Authentication Token.Copy it
+	It should look like this >>ngrok config add-authtoken 2buU35ts2x43QuGZUCXpaFoibTj_78V9RBRDrVSoQxbvmxqws
+	install ngrok from chrome
+	run ngrok.exe
+	run the Auth token line  
+	now you can start your server
+	
+
+	
+
+
+
+
+
+
+
+
+
+	
